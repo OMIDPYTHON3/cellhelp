@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>جدول اولویت کیفیت شبکه موبایل</title>
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+      direction: rtl;
+    }
+    table {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background-color: #0057b8;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    tr:hover {
+      background-color: #e6f0ff;
+    }
+    caption {
+      caption-side: top;
+      font-size: 1.4rem;
+      font-weight: 700;
+      padding-bottom: 15px;
+      color: #004080;
+    }
+    .good { background-color: #c8e6c9; color: #256029; font-weight: 600; }
+    .average { background-color: #fff9c4; color: #827717; font-weight: 600; }
+    .poor { background-color: #ffcdd2; color: #b71c1c; font-weight: 600; }
+    .desc-row td {
+      background-color: #f0f4f8;
+      font-size: 0.9rem;
+      color: #333;
+      border-bottom: none;
+      text-align: justify;
+    }
+    .calculator {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .calculator label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .calculator input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: 'Tahoma', sans-serif;
+      font-size: 1rem;
+      direction: ltr;
+    }
+    .calculator button {
+      padding: 10px 20px;
+      background-color: #0057b8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    .calculator button:hover {
+      background-color: #003d80;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<table>
+  <caption>اولویت‌بندی کیفیت پارامترهای شبکه موبایل</caption>
+  <thead>
+    <tr>
+      <th>پارامتر</th>
+      <th>عالی <span style="color:green;">&#8593;</span></th>
+      <th>متوسط</th>
+      <th>ضعیف <span style="color:red;">&#8595;</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RSRP (dBm)</td>
+      <td class="good">بالاتر از -80 <span style="color:green;">&#8593;</span></td>
+      <td class="average">بین -90 تا -80</td>
+      <td class="poor">پایین‌تر از -90 <span style="color:red;">&#8595;</span></td>
+    </tr>
+    <tr class="desc-row"><td colspan="4">قدرت سیگنال مفید از سلول. هرچه عدد بالاتر (کمتر منفی) باشد، کیفیت بهتر است.</td></tr>
+
+    <tr>
+      <td>SINR (dB)</td>
+      <td class="good">بالاتر از 25 <span style="color:green;">&#8593;</span></td>
+      <td class="average">بین 13 تا 25</td>
+      <td class="poor">پایین‌تر از 13 <span style="color:red;">&#8595;</span></td>
+    </tr>
+    <tr class="desc-row"><td colspan="4">نسبت سیگنال به نویز؛ عدد بالاتر یعنی ارتباط تمیزتر و پایدارتر.</td></tr>
+
+    <tr>
+      <td>CQI</td>
+      <td class="good">12 تا 15 <span style="color:green;">&#8593;</span></td>
+      <td class="average">7 تا 11</td>
+      <td class="poor">کمتر از 7 <span style="color:red;">&#8595;</span></td>
+    </tr>
+    <tr class="desc-row"><td colspan="4">شاخص کیفیت کانال از دید دستگاه، تأثیر مستقیم روی سرعت دارد.</td></tr>
+
+    <tr>
+      <td>RSRQ (dB)</td>
+      <td class="good">بین -3 تا -9 <span style="color:green;">&#8593;</span></td>
+      <td class="average">بین -10 تا -15</td>
+      <td class="poor">پایین‌تر از -15 <span style="color:red;">&#8595;</span></td>
+    </tr>
+    <tr class="desc-row"><td colspan="4">کیفیت سیگنال نسبت به نویز و بار شبکه؛ کمتر بودن منفی بهتر است.</td></tr>
+
+    <tr>
+      <td>RSSI (dBm)</td>
+      <td class="good">بالاتر از -65 <span style="color:green;">&#8593;</span></td>
+      <td class="average">بین -85 تا -65</td>
+      <td class="poor">پایین‌تر از -85 <span style="color:red;">&#8595;</span></td>
+    </tr>
+    <tr class="desc-row"><td colspan="4">قدرت کلی سیگنال دریافتی، هرچه بالاتر بهتر.</td></tr>
+
+    <tr>
+      <td>BW (MHz)</td>
+      <td colspan="3">پهنای باند اختصاص یافته؛ هرچه بیشتر باشد ظرفیت و سرعت بهتر است.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="calculator">
+  <h2 style="text-align:center; color:#004080;">ماشین حساب کیفیت سیگنال</h2>
+  <label>RSRP (dBm): <input type="number" id="rsrp" placeholder="مثال: -85" /></label>
+  <label>SINR (dB): <input type="number" id="sinr" placeholder="مثال: 15" /></label>
+  <label>CQI: <input type="number" id="cqi" placeholder="مثال: 10" min="0" max="15" /></label>
+  <label>RSRQ (dB): <input type="number" id="rsrq" placeholder="مثال: -8" /></label>
+  <label>RSSI (dBm): <input type="number" id="rssi" placeholder="مثال: -65" /></label>
+  <button onclick="calculateQuality()">تحلیل کیفیت</button>
+  <div id="result"></div>
+</div>
+
+<script>
+function calculateQuality() {
+  const rsrp = parseInt(document.getElementById("rsrp").value);
+  const sinr = parseInt(document.getElementById("sinr").value);
+  const cqi = parseInt(document.getElementById("cqi").value);
+  const rsrq = parseInt(document.getElementById("rsrq").value);
+  const rssi = parseInt(document.getElementById("rssi").value);
+
+  let output = "<ul>";
+  let inputGiven = false;
+
+  if (!isNaN(rsrp)) {
+    inputGiven = true;
+    if (rsrp > -80) output += "<li>RSRP: ✅ عالی</li>";
+    else if (rsrp >= -90) output += "<li>RSRP: ⚠️ متوسط</li>";
+    else output += "<li>RSRP: ❌ ضعیف</li>";
+  }
+
+  if (!isNaN(sinr)) {
+    inputGiven = true;
+    if (sinr > 25) output += "<li>SINR: ✅ عالی</li>";
+    else if (sinr >= 13) output += "<li>SINR: ⚠️ متوسط</li>";
+    else output += "<li>SINR: ❌ ضعیف</li>";
+  }
+
+  if (!isNaN(cqi)) {
+    inputGiven = true;
+    if (cqi >= 12) output += "<li>CQI: ✅ عالی</li>";
+    else if (cqi >= 7) output += "<li>CQI: ⚠️ متوسط</li>";
+    else output += "<li>CQI: ❌ ضعیف</li>";
+  }
+
+  if (!isNaN(rsrq)) {
+    inputGiven = true;
+    if (rsrq >= -9 && rsrq <= -3) output += "<li>RSRQ: ✅ عالی</li>";
+    else if (rsrq >= -15 && rsrq < -9) output += "<li>RSRQ: ⚠️ متوسط</li>";
+    else output += "<li>RSRQ: ❌ ضعیف</li>";
+  }
+
+  if (!isNaN(rssi)) {
+    inputGiven = true;
+    if (rssi > -65) output += "<li>RSSI: ✅ عالی</li>";
+    else if (rssi >= -85) output += "<li>RSSI: ⚠️ متوسط</li>";
+    else output += "<li>RSSI: ❌ ضعیف</li>";
+  }
+
+  output += "</ul>";
+
+  if (!inputGiven) {
+    output = "<p style='color:#b71c1c;'>لطفاً حداقل یک مقدار وارد کنید تا تحلیل انجام شود.</p>";
+  }
+
+  document.getElementById("result").innerHTML = output;
+}
+</script>
+
+</body>
+</html>
